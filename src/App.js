@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { NewPage } from './components/NewPage';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-function App() {
+const { NewPage } = require('./components/NewPage');
+
+export default function App() {
   return (
     <Router>
       <Route exact path="/">
@@ -13,5 +14,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
