@@ -8,6 +8,16 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.2.1-beta | 2021-07-31 Hytalo M. Bassi
+
+### Added
+
+- Tests to components
+
+### Changed
+
+- Test to App now find Main page instead of learn react
+
 ## 0.2.1-alpha | 2021-07-31 Hytalo M. Bassi
 
 ### Added
