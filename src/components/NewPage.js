@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
+import New from '../api/new';
 
-const { New } = require('../api/new');
-
-function NewPage() {
+export default function NewPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
+  const [err, setError] = useState();
   const { path } = useParams();
 
   useEffect(() => {
@@ -15,23 +15,26 @@ function NewPage() {
         setData(res);
         setIsLoading(false);
       })
-      // eslint-disable-next-line no-console
-      .catch((err) => console.log(err));
+      .catch((fetchErr) => {
+        setError(fetchErr);
+        setIsLoading(false);
+      });
   }, [path]);
 
   return (
     <>
-      {!isLoading && (
+      {!isLoading && !err && (
         <>
-          <h1>{data.data.title}</h1>
-          <span>{data.data.desc}</span>
+          <h1>{data.newObj.title}</h1>
+          <span>{data.newObj.desc}</span>
           <div>
-            <Markdown>{data.content}</Markdown>
+            <Markdown>{data.newObj.content}</Markdown>
           </div>
         </>
+      )}
+      {!isLoading && err && (
+        <h1>New not found!</h1>
       )}
     </>
   );
 }
-
-export default { NewPage };

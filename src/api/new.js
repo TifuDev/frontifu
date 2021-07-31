@@ -1,10 +1,10 @@
 const { API_HOST, API_PORT } = process.env;
 
-class New {
+export default class New {
   constructor(path) {
     this.path = path;
-    this.api_url = 'http://localhost:3000/api';
-    if (API_HOST != null) this.api_url = `http://${API_HOST}:${API_PORT}/api`;
+    this.api_url = 'http://localhost:3000';
+    if (API_HOST != null) this.api_url = `http://${API_HOST}:${API_PORT}/`;
   }
 
   get() {
@@ -19,5 +19,3 @@ class New {
     });
   }
 }
-
-export default { New };

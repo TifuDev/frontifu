@@ -1,13 +1,17 @@
 module.exports = {
   purge: [
-    "./src/index.js"
+    './src/index.js',
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        black: '#212121',
+      },
+    },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
