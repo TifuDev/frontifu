@@ -8,6 +8,18 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.2.1 | 2021-07-31 Hytalo M. Bassi
+
+### Added
+
+- static function catalog added to News API
+- Home components
+- catalog news at home component
+
+### Changed
+
+- Home component instead of header 'Main page'
+
 ## 0.2.1-beta | 2021-07-31 Hytalo M. Bassi
 
 ### Added
