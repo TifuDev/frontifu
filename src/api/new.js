@@ -1,22 +1,14 @@
-const { API_HOST, API_PORT } = process.env;
+import { Request, get } from '../utils/request';
 
-let API_URL = 'http://localhost:3000';
-if (API_HOST !== undefined) API_URL = `http://${API_HOST}:${API_PORT}`;
+const API_URL = 'http://localhost:3000';
 export default class New {
   constructor(path) {
     this.path = path;
+    this.request = new Request(API_URL);
   }
 
   static catalog() {
-    return new Promise((resolve, reject) => {
-      fetch(`${API_URL}/catalog`)
-        .then((res) => {
-          if (!res.ok) throw new Error('An unexpected error occured. See the API documentation to know how to solve.');
-          return res.json();
-        })
-        .then((res) => resolve(res))
-        .catch((err) => reject(err));
-    });
+    return get(`${API_URL}/catalog`);
   }
 
   get() {
