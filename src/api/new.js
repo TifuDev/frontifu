@@ -12,14 +12,6 @@ export default class New {
   }
 
   get() {
-    return new Promise((resolve, reject) => {
-      fetch(`${API_URL}/new/${this.path}`)
-        .then((res) => {
-          if (!res.ok) throw new Error('New not found!');
-          return res.json();
-        })
-        .then((res) => resolve(res))
-        .catch((err) => reject(err));
-    });
+    return this.request.get(`new/${this.path}`);
   }
 }
