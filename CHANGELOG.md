@@ -8,6 +8,18 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.0 | 2021-08-05 Hytalo M. Bassi
+
+## Added
+
+- NewsPage style improvement
+- "Publicado dia {day} de {month} de {year}"
+
+## Changed
+
+- News API parses newObj
+- response.date is parsed as Date
+
 ## 0.2.1 | 2021-07-31 Hytalo M. Bassi
 
 ### Added

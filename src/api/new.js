@@ -12,6 +12,15 @@ export default class New {
   }
 
   get() {
-    return this.request.get(`new/${this.path}`);
+    return new Promise((resolve, reject) => {
+      this.request.get(`new/${this.path}`)
+        .then((res) => {
+          const parsed = res.newObj;
+          parsed.date = new Date(Date.parse(parsed.date));
+
+          resolve(parsed);
+        })
+        .catch((err) => reject(err));
+    });
   }
 }
