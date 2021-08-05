@@ -22,19 +22,22 @@ export default function NewPage() {
   }, [path]);
 
   return (
-    <>
+    <div className="md:pl-4 md:grid md:grid-cols-3">
       {!isLoading && !err && (
-        <>
-          <h1>{data.newObj.title}</h1>
-          <span>{data.newObj.desc}</span>
-          <div>
-            <Markdown>{data.newObj.content}</Markdown>
+        <main className="grid-span-2" itemScope itemType="https://schema.org/NewsArticle">
+          <div className="mb-2">
+            <h1 className="text-2xl md:text-3xl" itemProp="headline">{data.newObj.title}</h1>
+            <span className="text-gray-700 text-base italic dark:text-gray-300" itemProp="abstract">{data.newObj.desc}</span>
           </div>
-        </>
+          <img src={data.newObj.metadata.thumbnailUrl} alt="Thumbnail" className="" />
+          <article>
+            <Markdown>{data.newObj.content}</Markdown>
+          </article>
+        </main>
       )}
       {!isLoading && err && (
         <h1>New not found!</h1>
       )}
-    </>
+    </div>
   );
 }
