@@ -8,9 +8,16 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.1 | 2021-08-05 Hytalo M. Bassi
+
+#### Changed
+
+- Home component mobile friendly
+- navigation improved
+
 ## 0.3.0 | 2021-08-05 Hytalo M. Bassi
 
-## Added
+#### Added
 
 - NewsPage style improvement
 - "Publicado dia {day} de {month} de {year}"

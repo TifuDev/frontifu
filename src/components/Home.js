@@ -19,10 +19,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="grid grid-cols-6 gap-4">
+    <div className="md:grid md:grid-cols-6 md:gap-4">
       {!isLoading && !err
         && data.map((newObj) => (
-          <div key={newObj.path}>
+          <div className="p-2 md:p-0" key={newObj.path}>
             <img src={newObj.metadata.thumbnailUrl} alt="Thumbnail" width="auto" />
             <h1><a href={`/new/${newObj.path}`}>{newObj.title}</a></h1>
             <p>{newObj.desc}</p>
