@@ -8,6 +8,18 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.2 | 2021-08-07 Hytalo M. Bassi
+
+#### Added
+
+- version to manifest.json
+
+#### Changed
+
+- favicon.ico changed to Tifu dark logo
+- manifest.json title changed to 'Tifu'
+- logo192.png and logo512.png changed to Tifu logo
+
 ## 0.3.1 | 2021-08-05 Hytalo M. Bassi
 
 #### Changed
