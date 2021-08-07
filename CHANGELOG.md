@@ -8,6 +8,16 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.3 | 2021-08-07 Hytalo M. Bassi
+
+#### Added
+
+- not found component
+
+#### Changed
+
+- content area uses the screen height
+
 ## 0.3.2 | 2021-08-07 Hytalo M. Bassi
 
 #### Added

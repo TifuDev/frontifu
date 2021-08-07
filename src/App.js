@@ -9,18 +9,22 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import NewPage from './components/NewPage';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 export default function App() {
   return (
-    <div className="p-2 text-lg dark:bg-gray-900 dark:text-white">
+    <div className="text-lg dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Redirect from="/home" to="/" />
-          <Route path="/new/:path" component={NewPage} />
-        </Switch>
-      </Router>
+      <div className="h-screen">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Redirect from="/home" to="/" />
+            <Route path="/new/:path" component={NewPage} />
+            <Route path="*" status={404} component={NotFound} />
+          </Switch>
+        </Router>
+      </div>
       <Footer />
     </div>
   );
