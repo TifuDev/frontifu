@@ -15,16 +15,14 @@ export default function App() {
   return (
     <div className="text-lg dark:bg-gray-900 dark:text-white">
       <Navbar />
-      <div className="h-screen">
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Redirect from="/home" to="/" />
-            <Route path="/new/:path" component={NewPage} />
-            <Route path="*" status={404} component={NotFound} />
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Redirect from="/home" to="/" />
+          <Route path="/new/:path" component={NewPage} />
+          <Route path="*" status={404} component={NotFound} />
+        </Switch>
+      </Router>
       <Footer />
     </div>
   );

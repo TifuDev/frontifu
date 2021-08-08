@@ -8,6 +8,18 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.4 | 2021-08-07 Hytalo M. Bassi
+
+#### Changed
+
+- using logo instead of 'logo' and 'home'
+- SVGs moved to public/
+- Tailwind's color palete using default colors
+
+#### Removed
+
+- 'h-screen' class from App component
+
 ## 0.3.3 | 2021-08-07 Hytalo M. Bassi
 
 #### Added
