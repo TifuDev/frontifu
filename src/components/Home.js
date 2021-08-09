@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="md:grid md:grid-cols-6 md:gap-4">
+    <div className="container mx-auto md:grid md:grid-cols-6 md:gap-4">
       {!isLoading && !err
         && data.map((newObj) => (
           <div className="p-2 md:p-0" key={newObj.path}>
