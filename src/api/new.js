@@ -7,7 +7,9 @@ export default class New {
     this.request = new Request(API_URL);
   }
 
-  static catalog() {
+  static catalog(q) {
+    if (q) return get(`${API_URL}/catalog?q=${q}`);
+
     return get(`${API_URL}/catalog`);
   }
 

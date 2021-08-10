@@ -10,10 +10,17 @@ Modifications not released will be documented here
 
 ## 0.3.5 | 2021-08-09 Hytalo M. Bassi
 
+#### Added
+
+- search area
+
 #### Changed
 
 - navbar as a rectangle
 - logo centralized
+- query title in catalog
+- dark extended to display
+- using tailwind classes to change logo
 
 ## 0.3.4 | 2021-08-07 Hytalo M. Bassi
 

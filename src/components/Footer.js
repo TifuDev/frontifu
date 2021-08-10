@@ -9,11 +9,8 @@ export default function Footer() {
           <Link to="/">Link</Link>
         </div>
         <a href="/">
-          <img
-            className="max-h-10"
-            src={window.matchMedia('(prefers-color-scheme: dark)').matches ? '/svg/logo-dark.svg' : '/svg/logo.svg'}
-            alt="logo"
-          />
+          <img className="hidden dark:block max-h-10" src="/svg/logo-dark.svg" alt="logo" />
+          <img className="block dark:hidden max-h-10" src="/svg/logo.svg" alt="logo" />
         </a>
         <div className="space-x-4">
           <Link to="/">Link</Link>
