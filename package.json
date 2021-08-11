@@ -1,7 +1,7 @@
 {
   "name": "frontifu",
-  "version": "0.3.5",
-  "private": true,
+  "version": "0.3.6",
+  "private": false,
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -51,5 +51,9 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0"
-  }
+  },
+  "main": "src/app.js",
+  "repository": "https://github.com/hytalo-bassi/frontifu.git",
+  "author": "hytalo-bassi <hytalo-bassi@protonmail.com>",
+  "license": "MIT"
 }

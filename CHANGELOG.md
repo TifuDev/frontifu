@@ -8,6 +8,18 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.6 | 2021-08-09 Hytalo M. Bassi
+
+#### Added
+
+- yarn.lock added
+
+#### Changed
+
+- search area style improved
+- navbar style improved
+- color palete
+
 ## 0.3.5 | 2021-08-09 Hytalo M. Bassi
 
 #### Added
