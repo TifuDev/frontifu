@@ -8,7 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
-## 0.3.6 | 2021-08-09 Hytalo M. Bassi
+## 0.3.7 | 2021-08-11 Hytalo M. Bassi
+
+#### Added
+
+- favicon-dark.ico
+
+#### Changed
+
+- dark support in index.html
+
+## 0.3.6 | 2021-08-11 Hytalo M. Bassi
 
 #### Added
 
