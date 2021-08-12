@@ -8,6 +8,13 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.9 | 2021-08-12 Hytalo M. Bassi
+
+#### Changed
+
+- tailwind purge
+- autoprefixer, tailwindcss, postcss as devDependecies
+
 ## 0.3.8 | 2021-08-12 Hytalo M. Bassi
 
 #### Added
@@ -16,7 +23,7 @@ Modifications not released will be documented here
 
 #### Changed
 
-- compatibility with postcss7 in tailwind 
+- compatibility with postcss7 in tailwind
 
 ## 0.3.7 | 2021-08-11 Hytalo M. Bassi
 
