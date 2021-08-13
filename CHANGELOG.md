@@ -8,6 +8,23 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.11 | 2021-08-13 Hytalo M. Bassi
+
+#### Added
+
+- enzyme tests
+- new devDependencies
+
+#### Changed
+
+- tests in App component
+- setupTests.js to use enzyme adapter
+
+#### Removed
+
+- Footer.test.js
+- Navbar.test.js
+
 ## 0.3.10 | 2021-08-12 Hytalo M. Bassi
 
 #### Added
