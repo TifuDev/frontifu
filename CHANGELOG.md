@@ -8,6 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.10 | 2021-08-12 Hytalo M. Bassi
+
+#### Added
+
+- person API
+
+#### Changed
+
+- style of NewPage
+- author data in NewPage(template)
+
 ## 0.3.9 | 2021-08-12 Hytalo M. Bassi
 
 #### Changed

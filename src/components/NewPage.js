@@ -10,18 +10,18 @@ function pad(num, size) {
 
 export default function NewPage() {
   const monthsName = [
-    'janeiro',
-    'fevereiro',
-    'marco',
-    'abril',
-    'maio',
-    'junho',
-    'julho',
-    'agosto',
-    'setembro',
-    'outubro',
-    'novembro',
-    'dezembro',
+    'Jan',
+    'Fev',
+    'Mar',
+    'Abr',
+    'Mai',
+    'Jun',
+    'Jul',
+    'Ago',
+    'Set',
+    'Out',
+    'Nov',
+    'Dez',
   ];
 
   const [isLoading, setIsLoading] = useState(true);
@@ -42,14 +42,18 @@ export default function NewPage() {
   }, [path]);
 
   return (
-    <div className="md:pl-4 md:grid md:grid-cols-3">
+    <div className="md:grid md:grid-cols-3">
       {!isLoading && !err && (
-        <main className="grid-span-2" itemScope itemType="https://schema.org/NewsArticle">
-          <div className="mb-2">
-            <h1 className="text-2xl md:text-3xl" itemProp="headline">{data.title}</h1>
-            <p className="text-gray-700 text-base italic dark:text-gray-300" itemProp="abstract">{data.desc}</p>
-            <p>{`Publicado dia ${pad(data.date.getDay(), 2)} de ${monthsName[data.date.getMonth()]} de ${data.date.getFullYear()}`}</p>
+        <main className="space-y-1 p-1 col-span-2 pl-0 md:pl-8" itemScope itemType="https://schema.org/NewsArticle">
+          <h1 className="text-2xl md:text-3xl" itemProp="headline">{data.title}</h1>
+          <div className="my-2 flex items-center">
+            <img className="max-h-12 md:max-h-16" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.searchpng.com%2Fwp-content%2Fuploads%2F2019%2F02%2FDeafult-Profile-Pitcher.png&f=1&nofb=1" alt="Profile" />
+            <div>
+              <h2>John Doe</h2>
+              <p>{`${monthsName[data.date.getMonth()]} ${pad(data.date.getDay(), 2)}, ${data.date.getFullYear()}`}</p>
+            </div>
           </div>
+          <p className="text-gray-700 text-base italic dark:text-gray-300" itemProp="abstract">{data.desc}</p>
           <img src={data.metadata.thumbnailUrl} alt="Thumbnail" className="" />
           <article>
             <Markdown>{data.content}</Markdown>
