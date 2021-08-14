@@ -1,35 +1,28 @@
-const env = process.env
+import { Request, get } from '../utils/request';
 
-class NewNotFound extends Error {
-    constructor(msg){
-        super(msg);
-        this.name = "NoticeNotFound";
-        if(msg === null)
-            this.msg = "New not found!";
-    }
+const API_URL = 'http://localhost:3000';
+export default class New {
+  constructor(path) {
+    this.path = path;
+    this.request = new Request(API_URL);
+  }
+
+  static catalog(q) {
+    if (q) return get(`${API_URL}/catalog?q=${q}`);
+
+    return get(`${API_URL}/catalog`);
+  }
+
+  get() {
+    return new Promise((resolve, reject) => {
+      this.request.get(`new/${this.path}`)
+        .then((res) => {
+          const parsed = res.newObj;
+          parsed.date = new Date(Date.parse(parsed.date));
+
+          resolve(parsed);
+        })
+        .catch((err) => reject(err));
+    });
+  }
 }
-
-class New {
-    constructor(path) {
-        this.path = path;
-        this.api_url = "http://localhost:3000/api";
-        
-        if(env.API_HOST != null)
-            this.api_url = `http://${env.API_HOST}:${env.API_PORT}/api`;
-    }
-    
-    get() {
-        return new Promise((resolve, reject) => {
-            fetch(`${this.api_url}/new/${this.path}`)
-                .then(res => {
-                    if(!res.ok)
-                        throw new NewNotFound();
-                    return res.json();
-                })
-                .then(res => resolve(res))
-                .catch(err => reject(err));
-        });
-    }
-}
-
-export {New};
