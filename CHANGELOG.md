@@ -8,6 +8,12 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.15 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- .d.ts of news and person
+
 ## 0.3.14 | 2021-08-14 Hytalo M. Bassi
 
 #### Changed

@@ -1,6 +1,6 @@
 {
   "name": "frontifu",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "private": false,
   "dependencies": {
     "@craco/craco": "^6.2.0",
@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^16.6.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "autoprefixer": "^9",
     "eslint": "^7.31.0",
