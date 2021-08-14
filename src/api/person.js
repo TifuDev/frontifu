@@ -11,7 +11,7 @@ export default class Person {
   }
 
   get() {
-    if (!this.username === null) return this.request.get(`person/get?username=${this.username}`);
+    if (this.username !== null) return this.request.get(`person/get?username=${this.username}`);
     return this.request.get(`person/get?id=${this.id}`);
   }
 }

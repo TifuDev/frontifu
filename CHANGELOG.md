@@ -8,6 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.12 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- PersonPage
+- /person/:username route added to App
+
+#### Changed
+
+- Person('username', null).get() method fixed
+
 ## 0.3.11 | 2021-08-13 Hytalo M. Bassi
 
 #### Added

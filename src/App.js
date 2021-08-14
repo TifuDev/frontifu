@@ -10,6 +10,7 @@ import Home from './components/Home';
 import NewPage from './components/NewPage';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
+import PersonPage from './components/PersonPage';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Redirect from="/home" to="/" />
           <Route path="/new/:path" component={NewPage} />
+          <Route path="/person/:username" component={PersonPage} />
           <Route path="*" status={404} component={NotFound} />
         </Switch>
       </Router>
