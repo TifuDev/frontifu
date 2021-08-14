@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx';
 import New from '../api/new';
+import Person from '../api/person';
 
 function pad(num, size) {
   const string = `000000000${num}`;
@@ -32,8 +33,14 @@ export default function NewPage() {
   useEffect(() => {
     new New(path).get()
       .then((res) => {
-        setData(res);
-        setIsLoading(false);
+        const parsedRes = res;
+        new Person(null, res.author).get()
+          .then((author) => {
+            parsedRes.author = author;
+
+            setData(parsedRes);
+            setIsLoading(false);
+          });
       })
       .catch((fetchErr) => {
         setError(fetchErr);
@@ -47,9 +54,9 @@ export default function NewPage() {
         <main className="space-y-1 p-1 col-span-2 pl-0 md:pl-8" itemScope itemType="https://schema.org/NewsArticle">
           <h1 className="text-2xl md:text-3xl" itemProp="headline">{data.title}</h1>
           <div className="my-2 flex items-center">
-            <img className="max-h-12 md:max-h-16" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.searchpng.com%2Fwp-content%2Fuploads%2F2019%2F02%2FDeafult-Profile-Pitcher.png&f=1&nofb=1" alt="Profile" />
+            <img className="max-h-12 md:max-h-16 rounded-full" src={data.author.details.profilePhotoUrl} alt="Profile" />
             <div>
-              <h2>John Doe</h2>
+              <a href={`/person/${data.author.username}`}><h2>{`${data.author.firstName} ${data.author.familyName}`}</h2></a>
               <p>{`${monthsName[data.date.getMonth()]} ${pad(data.date.getDay(), 2)}, ${data.date.getFullYear()}`}</p>
             </div>
           </div>

@@ -1,6 +1,6 @@
 {
   "name": "frontifu",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "private": false,
   "dependencies": {
     "@craco/craco": "^6.2.0",

@@ -8,6 +8,12 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.13 | 2021-08-14 Hytalo M. Bassi
+
+#### Changed
+
+- NewsPage loads author data
+
 ## 0.3.12 | 2021-08-14 Hytalo M. Bassi
 
 #### Added
