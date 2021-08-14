@@ -8,6 +8,13 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.14 | 2021-08-14 Hytalo M. Bassi
+
+#### Changed
+
+- request now throw Error if !res.ok
+- NewsPage handle error in Person().get() method
+
 ## 0.3.13 | 2021-08-14 Hytalo M. Bassi
 
 #### Changed

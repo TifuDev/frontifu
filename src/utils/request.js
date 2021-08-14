@@ -2,7 +2,7 @@ function get(url) {
   return new Promise((resolve, reject) => {
     fetch(url)
       .then((res) => {
-        if (!res.ok) return reject(new Error('An error occured!'));
+        if (!res.ok) throw new Error(`An error occured! Response status ${res.status}`);
         return res.json();
       })
       .then((res) => resolve(res))

@@ -40,6 +40,10 @@ export default function NewPage() {
 
             setData(parsedRes);
             setIsLoading(false);
+          })
+          .catch((authorErr) => {
+            setError(authorErr);
+            setIsLoading(false);
           });
       })
       .catch((fetchErr) => {
