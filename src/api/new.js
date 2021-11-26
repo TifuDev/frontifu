@@ -1,7 +1,7 @@
 import { Request, get } from '../utils/request';
 
 const API_URL = 'http://localhost:3000';
-export default class New {
+export default class NewAPI {
   constructor(path) {
     this.path = path;
     this.request = new Request(API_URL);
@@ -17,7 +17,9 @@ export default class New {
     return new Promise((resolve, reject) => {
       this.request.get(`new/${this.path}`)
         .then((res) => {
-          const parsed = res.newObj;
+          const parsed = res;
+          // eslint-disable-next-line no-console
+          console.log(res);
           parsed.date = new Date(Date.parse(parsed.date));
 
           resolve(parsed);

@@ -7,7 +7,7 @@ import {
 import { withRouter } from 'react-router';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import NewPage from './components/NewPage';
+import New from './components/New';
 import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import PersonPage from './components/PersonPage';
@@ -20,7 +20,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Redirect from="/home" to="/" />
-          <Route path="/new/:path" component={NewPage} />
+          <Route path="/new/:path" component={New} />
           <Route path="/person/:username" component={PersonPage} />
           <Route path="*" status={404} component={NotFound} />
         </Switch>
