@@ -8,6 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.18 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- Search component
+
+#### Changed
+
+- Navbar component now uses Search
+- path, thumbnailUrl and className are optionals at NewLabel component
+
 ## 0.3.17 | 2021-08-14 Hytalo M. Bassi
 
 #### Added
