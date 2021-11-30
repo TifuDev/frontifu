@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import New from '../api/new';
+import NewLabel from './NewLabel';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,14 +20,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto md:grid md:grid-cols-6 md:gap-4">
+    <div className="container mx-auto">
       {!isLoading && !err
         && data.map((newObj) => (
-          <div className="p-2 md:p-0" key={newObj.path}>
-            <img src={newObj.metadata.thumbnailUrl} alt="Thumbnail" width="auto" />
-            <h1><a href={`/new/${newObj.path}`}>{newObj.title}</a></h1>
-            <p>{newObj.desc}</p>
-          </div>
+          <NewLabel
+            path={newObj.path}
+            title={newObj.title}
+            desc={newObj.desc}
+            thumbnailUrl={newObj.metadata.thumbnailUrl}
+            key={newObj.path}
+          />
         ))}
       {!isLoading && err && (
         <h1>An error occured!</h1>

@@ -8,6 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.17 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- NewLabel.js as a component now
+
+#### Changed
+
+- Home.js to use NewLabel instead of inline jsx
+
+
 ## 0.3.15 | 2021-08-14 Hytalo M. Bassi
 
 #### Added
