@@ -2,6 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Markdown from 'markdown-to-jsx';
 import NewAPI from '../api/new';
+import PersonLabel from './PersonLabel';
+
+const MonthNames = [
+  'Jan',
+  'Fev',
+  'Mar',
+  'Abr',
+  'Mai',
+  'Jun',
+  'Jul',
+  'Ago',
+  'Set',
+  'Out',
+  'Nov',
+  'Dez',
+];
 
 export default class New extends React.Component {
   constructor(props) {
@@ -40,10 +56,17 @@ export default class New extends React.Component {
 
     if (data && isLoaded) {
       return (
-        <div className="p-2">
-          <h1 className="text-6xl text-semibold">{data.title}</h1>
-          <p>{data.desc}</p>
-          <div>
+        <div itemScope itemType="https://schema.org/NewsArticle" className="md:grid md:grid-cols-8">
+          <div className="p-2 space-y-2 md:col-span-6 md:col-start-2 md:col-end-8">
+            <h1 className="text-6xl font-bold tracking-wide">{data.title}</h1>
+            <p className="text-xl font-light">{data.desc}</p>
+            <PersonLabel
+              profilePhoto={data.author.details.profilePhotoUrl}
+              firstName={data.author.firstName}
+              familyName={data.author.familyName}
+              desc={`${MonthNames[data.date.getUTCMonth()]} ${data.date.getUTCDate()}, ${data.date.getUTCFullYear()}`}
+            />
+            <img className="h-auto w-full" src={data.metadata.thumbnailUrl} alt="Thumbnail" />
             <Markdown>{data.content}</Markdown>
           </div>
         </div>

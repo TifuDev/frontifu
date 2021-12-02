@@ -1,4 +1,5 @@
 import { Request, get } from '../utils/request';
+import Person from './person';
 
 const API_URL = 'http://localhost:3000';
 export default class NewAPI {
@@ -18,11 +19,14 @@ export default class NewAPI {
       this.request.get(`new/${this.path}`)
         .then((res) => {
           const parsed = res;
-          // eslint-disable-next-line no-console
-          console.log(res);
-          parsed.date = new Date(Date.parse(parsed.date));
 
-          resolve(parsed);
+          new Person(null, res.author).get()
+            .then((person) => {
+              parsed.author = person;
+              parsed.date = new Date(Date.parse(parsed.date));
+
+              resolve(parsed);
+            });
         })
         .catch((err) => reject(err));
     });

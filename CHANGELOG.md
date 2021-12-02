@@ -8,6 +8,17 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
+## 0.3.19 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- components/PersonLabel.js added
+
+#### Changed
+
+- components/New.js now uses PersonLabel component
+- api/new.js now loads author as the Person object
+
 ## 0.3.18 | 2021-08-14 Hytalo M. Bassi
 
 #### Added
