@@ -8,7 +8,23 @@ The format of changelog is based in [Keep a Changelog](https://keepachangelog.co
 
 Modifications not released will be documented here
 
-## 0.3.19 | 2021-08-14 Hytalo M. Bassi
+## 0.3.21 | 2021-08-14 Hytalo M. Bassi
+
+#### Added
+
+- requestFromAPI method to utils/request.js
+- REACT_APP_API_URL environment variable to utils/request.js
+
+#### Changed
+
+- new.js and person.js now using requestFromAPI
+
+#### Removed
+
+- API_URL const from new.js and person.js
+- Request class and function get from utils/request.js
+
+## 0.3.20 | 2021-08-14 Hytalo M. Bassi
 
 #### Changed
 

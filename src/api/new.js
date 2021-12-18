@@ -1,26 +1,24 @@
-import { Request, get } from '../utils/request';
+import requestFromAPI from '../utils/request';
 import Person from './person';
 
-const API_URL = 'http://localhost:3000';
 export default class NewAPI {
   constructor(path) {
     this.path = path;
-    this.request = new Request(API_URL);
   }
 
   static catalog(q) {
-    if (q) return get(`${API_URL}/catalog?q=${q}`);
+    if (q) return requestFromAPI(`catalog?q=${q}`);
 
-    return get(`${API_URL}/catalog`);
+    return requestFromAPI('catalog');
   }
 
   get() {
     return new Promise((resolve, reject) => {
-      this.request.get(`new/${this.path}`)
+      requestFromAPI(`new/${this.path}`)
         .then((res) => {
-          const parsed = res;
+          const parsed = res.newObj;
 
-          new Person(null, res.author).get()
+          new Person(null, parsed.author).get()
             .then((person) => {
               parsed.author = person;
               parsed.date = new Date(Date.parse(parsed.date));

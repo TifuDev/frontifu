@@ -1,5 +1,3 @@
-import { Request } from "../utils/request";
-
 export type PersonObject = {
   details: {
     knowsLanguage: string[],
@@ -19,6 +17,5 @@ export default class Person {
   constructor(username: string, id: string);
   id: string;
   username: string;
-  request: Request;
   get(): Promise<PersonObject>;
 }

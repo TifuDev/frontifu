@@ -1,23 +1,9 @@
-function get(url) {
+const { REACT_APP_API_URL } = process.env;
+
+export default function requestFromAPI(path) {
   return new Promise((resolve, reject) => {
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error(`An error occured! Response status ${res.status}`);
-        return res.json();
-      })
-      .then((res) => resolve(res))
+    fetch(`${REACT_APP_API_URL}/${path}`)
+      .then((res) => resolve(res.json()))
       .catch((err) => reject(err));
   });
 }
-
-class Request {
-  constructor(DefaultURL) {
-    this.DefaultURL = DefaultURL;
-  }
-
-  get(path) {
-    return get(`${this.DefaultURL}/${path}`);
-  }
-}
-
-export { Request, get };

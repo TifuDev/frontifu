@@ -21,6 +21,5 @@ export default class New {
   static catalog(q: string): any;
   constructor(path: string);
   path: string;
-  request: string;
   get(): Promise<NewsObject>;
 }
