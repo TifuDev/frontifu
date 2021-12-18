@@ -10,19 +10,17 @@ export default function NewLabel(props) {
     className,
   } = props;
   return (
-    <div className={`${className} p-2`}>
+    <div className={className}>
       {thumbnailUrl
         && <img className="w-full rounded-md" src={thumbnailUrl} alt="Thumbnail" />}
-      <div>
-        {thumbnailUrl ? (
-          <a href={`/new/${path}`}>
-            <h1 className="font-bold text-xl">{title}</h1>
-          </a>
-        ) : (
+      {thumbnailUrl ? (
+        <a href={`/new/${path}`}>
           <h1 className="font-bold text-xl">{title}</h1>
-        )}
-        <p className="text-lg font-light">{desc}</p>
-      </div>
+        </a>
+      ) : (
+        <h1 className="font-bold text-xl">{title}</h1>
+      )}
+      <p className="text-lg font-light">{desc}</p>
     </div>
   );
 }
@@ -36,7 +34,7 @@ NewLabel.propTypes = {
 };
 
 NewLabel.defaultProps = {
-  className: 'w-auto inline-block',
+  className: 'w-auto inline-block p-2',
   thumbnailUrl: null,
   path: null,
 };

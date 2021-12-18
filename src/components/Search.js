@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import New from '../api/new';
 import NewLabel from './NewLabel';
 
@@ -61,9 +62,10 @@ export default class Search extends React.Component {
 
   render() {
     const { catalog, resHidden } = this.state;
+    const { className } = this.props;
 
     return (
-      <div className="relative inline-block">
+      <div className={`relative inline-block ${className}`}>
         <div className="flex bg-gray-100 dark:bg-gray-800 p-1 rounded-md">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-auto w-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -84,7 +86,7 @@ export default class Search extends React.Component {
               desc={obj.desc}
               thumbnailUrl={obj.metadata.thumbnailUrl}
               key={obj.path}
-              className=""
+              className="p-2"
             />
           )) : (
             <NewLabel
@@ -98,3 +100,11 @@ export default class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  className: PropTypes.string,
+};
+
+Search.defaultProps = {
+  className: '',
+};

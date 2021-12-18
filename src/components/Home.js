@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="container">
       {!isLoading && !err
         && data.map((newObj) => (
           <NewLabel
@@ -29,6 +29,7 @@ export default function Home() {
             desc={newObj.desc}
             thumbnailUrl={newObj.metadata.thumbnailUrl}
             key={newObj.path}
+            className="p-4 md:p-2 block md:inline-block w-auto"
           />
         ))}
       {!isLoading && err && (

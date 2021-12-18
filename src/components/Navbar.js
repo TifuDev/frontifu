@@ -8,7 +8,7 @@ export default function Navbar() {
         <img className="hidden dark:block max-h-10" src="/svg/long-dark.svg" alt="logo" />
         <img className="block dark:hidden max-h-10" src="/svg/long.svg" alt="logo" />
       </a>
-      <Search />
+      <Search className="hidden md:block" />
     </nav>
   );
 }

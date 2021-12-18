@@ -10,6 +10,14 @@ Modifications not released will be documented here
 
 ## 0.3.19 | 2021-08-14 Hytalo M. Bassi
 
+#### Changed
+
+- hide SearchBox on small screens
+- padding of NewLabel can be changed
+- className of SearchBox can be concatenated
+
+## 0.3.19 | 2021-08-14 Hytalo M. Bassi
+
 #### Added
 
 - components/PersonLabel.js added
