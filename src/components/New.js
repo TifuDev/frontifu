@@ -35,6 +35,7 @@ export default class New extends React.Component {
 
   getData() {
     const { match } = this.props;
+
     new NewAPI(match.params.path).get()
       .then((res) => {
         this.setState({
@@ -51,7 +52,7 @@ export default class New extends React.Component {
   render() {
     const { data, isLoaded, error } = this.state;
     if (error) {
-      return <h1>Oh no</h1>;
+      return (<h1>Oh no</h1>);
     }
 
     if (data && isLoaded) {
@@ -65,6 +66,7 @@ export default class New extends React.Component {
               firstName={data.author.firstName}
               familyName={data.author.familyName}
               desc={`${MonthNames[data.date.getUTCMonth()]} ${data.date.getUTCDate()}, ${data.date.getUTCFullYear()}`}
+              username={data.author.username}
             />
             <img className="h-auto w-full" src={data.metadata.thumbnailUrl} alt="Thumbnail" />
             <Markdown>{data.content}</Markdown>
@@ -78,6 +80,6 @@ export default class New extends React.Component {
 }
 
 New.propTypes = {
-  match: PropTypes.element.isRequired,
-  path: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  match: PropTypes.object.isRequired,
 };

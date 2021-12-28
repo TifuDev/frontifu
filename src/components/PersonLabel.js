@@ -6,13 +6,19 @@ export default function PersonLabel(props) {
     firstName,
     familyName,
     desc,
+    username,
+    thumbnailClassName,
   } = props;
 
   return (
     <div className="flex items-center py-1">
-      <img className="w-12 h-12 rounded-full mr-2" src={profilePhoto} alt="Profile" />
+      <img className={thumbnailClassName} src={profilePhoto} alt="Profile" />
       <div>
-        <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
+        { username ? (
+          <a href={`/person/${username}`}>
+            <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
+          </a>
+        ) : <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>}
         {desc && (
           <p className="text-sm font-light">{desc}</p>
         )}
@@ -26,8 +32,12 @@ PersonLabel.propTypes = {
   firstName: PropTypes.string.isRequired,
   familyName: PropTypes.string.isRequired,
   desc: PropTypes.string,
+  username: PropTypes.string,
+  thumbnailClassName: PropTypes.string,
 };
 
 PersonLabel.defaultProps = {
+  thumbnailClassName: 'w-12 rounded-full mr-2',
   desc: null,
+  username: null,
 };
