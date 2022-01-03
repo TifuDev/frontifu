@@ -1,4 +1,6 @@
 module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     commonjs: true,
@@ -16,10 +18,12 @@ module.exports = {
   },
   plugins: [
     'react',
+    '@typescript-eslint',
   ],
   rules: {
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-filename-extension': [0, { extensions: ['.js', '.jsx'] }],
     'react/react-in-jsx-scope': 0,
-
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': ['error'],
   },
 };
