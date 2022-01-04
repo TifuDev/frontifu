@@ -2,17 +2,19 @@ import requestFromAPI from '../utils/request';
 import Person from './person';
 
 export default class NewAPI {
-  constructor(path) {
+  path: string;
+
+  constructor(path: string) {
     this.path = path;
   }
 
-  static catalog(q) {
+  static catalog(q: string): Promise<any> {
     if (q) return requestFromAPI(`catalog?q=${q}`);
 
     return requestFromAPI('catalog');
   }
 
-  get() {
+  get(): Promise<any> {
     return new Promise((resolve, reject) => {
       requestFromAPI(`new/${this.path}`)
         .then((res) => {
