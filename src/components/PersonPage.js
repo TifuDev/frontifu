@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Person from '../api/person';
+import { Person } from '../api/person';
 import PersonLabel from './PersonLabel';
 
 const nationality = {

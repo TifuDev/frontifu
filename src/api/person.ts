@@ -1,6 +1,22 @@
 import requestFromAPI from '../utils/request';
 
-export default class Person {
+export interface IPerson {
+  _id: string;
+  details: {
+    bio: string;
+    gender: number;
+    knowsLanguage: string[];
+    nationality: string;
+    profilePhotoUrl: string;
+  }
+  email: string;
+  familyName: string;
+  firstName: string;
+  roles: string[];
+  username: string;
+}
+
+export class Person {
   id: string;
 
   username: string | null;
@@ -11,7 +27,7 @@ export default class Person {
     this.username = username;
   }
 
-  get(): Promise<any> {
+  get(): Promise<Person> {
     if (this.username !== null) return requestFromAPI(`person/get?username=${this.username}`);
     return requestFromAPI(`person/get?id=${this.id}`);
   }

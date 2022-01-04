@@ -1,20 +1,43 @@
 import requestFromAPI from '../utils/request';
-import Person from './person';
+import { IPerson, Person } from './person';
 
-export default class NewAPI {
+export interface INew {
+  _id: number;
+  author: IPerson;
+  comments: object[];
+  date: Date;
+  dateLastMod: Date | null;
+  desc: string;
+  downloads: number;
+  editors: string[];
+  metadata: {
+    thumbnailUrl: string;
+    inLanguage: string;
+    accessMode: string;
+    keywords: string[];
+    isBasedOn: string[];
+  };
+  path: string;
+  pullRequest: any[];
+  reactions: Array< Array<string> >;
+  title: string;
+  content?: string;
+}
+
+export class New {
   path: string;
 
   constructor(path: string) {
     this.path = path;
   }
 
-  static catalog(q: string): Promise<any> {
+  static catalog(q?: string): Promise<INew[]> {
     if (q) return requestFromAPI(`catalog?q=${q}`);
 
     return requestFromAPI('catalog');
   }
 
-  get(): Promise<any> {
+  get(): Promise<INew> {
     return new Promise((resolve, reject) => {
       requestFromAPI(`new/${this.path}`)
         .then((res) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import New from '../api/new';
+import { New } from '../api/new';
 import NewLabel from './NewLabel';
 
 export default function Home() {

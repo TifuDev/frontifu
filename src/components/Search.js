@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import New from '../api/new';
+import { New } from '../api/new';
 import NewLabel from './NewLabel';
 
 export default class Search extends React.Component {

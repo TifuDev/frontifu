@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Markdown from 'markdown-to-jsx';
-import NewAPI from '../api/new';
+import { New as NewAPI, INew } from '../api/new';
 import PersonLabel from './PersonLabel';
 
 const MonthNames = [
@@ -19,11 +18,25 @@ const MonthNames = [
   'Dez',
 ];
 
-export default class New extends React.Component {
-  constructor(props) {
+interface Props {
+  match: {
+    params: {
+      path: string;
+    };
+  };
+}
+
+interface State {
+  data: INew | null;
+  isLoaded: boolean;
+  error: Error | null;
+}
+
+export default class New extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      data: {},
+      data: null,
       isLoaded: false,
       error: null,
     };
@@ -69,7 +82,7 @@ export default class New extends React.Component {
               username={data.author.username}
             />
             <img className="h-auto w-full" src={data.metadata.thumbnailUrl} alt="Thumbnail" />
-            <Markdown>{data.content}</Markdown>
+            <Markdown>{data.content!}</Markdown>
           </div>
         </div>
       );
@@ -78,8 +91,3 @@ export default class New extends React.Component {
     return <h1>loading</h1>;
   }
 }
-
-New.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  match: PropTypes.object.isRequired,
-};
