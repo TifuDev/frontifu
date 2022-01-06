@@ -1,10 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { New } from '../api/new';
+import { New, INew } from '../api/new';
 import NewLabel from './NewLabel';
 
-export default class Search extends React.Component {
-  constructor(props) {
+interface Props {
+  className: string;
+}
+
+interface State {
+  catalog: INew[];
+  resHidden: boolean;
+}
+
+export default class Search extends React.Component<Props, State> {
+  static defaultProps: { className: string; };
+
+  constructor(props: Props) {
     super(props);
     this.state = {
       catalog: [],
@@ -20,7 +30,7 @@ export default class Search extends React.Component {
     this.requestCatalog();
   }
 
-  onFocus(ev) {
+  onFocus(ev: any) {
     const { catalog } = this.state;
     const parent = ev.target.parentElement;
 
@@ -33,7 +43,7 @@ export default class Search extends React.Component {
     });
   }
 
-  onBlur(ev) {
+  onBlur(ev: any) {
     const { catalog } = this.state;
     const parent = ev.target.parentElement;
 
@@ -53,7 +63,7 @@ export default class Search extends React.Component {
       }));
   }
 
-  requestSearch(ev) {
+  requestSearch(ev: any) {
     New.catalog(ev.target.value)
       .then((res) => this.setState({
         catalog: res,
@@ -100,10 +110,6 @@ export default class Search extends React.Component {
     );
   }
 }
-
-Search.propTypes = {
-  className: PropTypes.string,
-};
 
 Search.defaultProps = {
   className: '',

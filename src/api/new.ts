@@ -41,7 +41,7 @@ export class New {
     return new Promise((resolve, reject) => {
       requestFromAPI(`new/${this.path}`)
         .then((res) => {
-          const parsed = res.newObj;
+          const parsed = res;
 
           new Person({ id: parsed.author }).get()
             .then((person) => {

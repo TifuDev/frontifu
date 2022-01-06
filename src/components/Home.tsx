@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { New } from '../api/new';
+import { New, INew } from '../api/new';
 import NewLabel from './NewLabel';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [data, setData] = useState<INew[]>();
   const [err, setError] = useState();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="container">
       {!isLoading && !err
-        && data.map((newObj) => (
+        && data!.map((newObj: INew) => (
           <NewLabel
             path={newObj.path}
             title={newObj.title}

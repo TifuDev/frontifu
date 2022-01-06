@@ -1,6 +1,13 @@
-import PropTypes from 'prop-types';
+interface Props {
+  profilePhoto: string;
+  firstName: string;
+  familyName: string;
+  desc: string;
+  username: string;
+  thumbnailClassName: string;
+}
 
-export default function PersonLabel(props) {
+export default function PersonLabel(props: Props) {
   const {
     profilePhoto,
     firstName,
@@ -26,15 +33,6 @@ export default function PersonLabel(props) {
     </div>
   );
 }
-
-PersonLabel.propTypes = {
-  profilePhoto: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  familyName: PropTypes.string.isRequired,
-  desc: PropTypes.string,
-  username: PropTypes.string,
-  thumbnailClassName: PropTypes.string,
-};
 
 PersonLabel.defaultProps = {
   thumbnailClassName: 'w-12 rounded-full mr-2',

@@ -1,7 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+interface Props {
+  path: string;
+  title: string;
+  desc: string;
+  thumbnailUrl: string;
+  className: string;
+}
 
-export default function NewLabel(props) {
+export default function NewLabel(props: Props) {
   const {
     path,
     title,
@@ -24,14 +29,6 @@ export default function NewLabel(props) {
     </div>
   );
 }
-
-NewLabel.propTypes = {
-  path: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  thumbnailUrl: PropTypes.string,
-  className: PropTypes.string,
-};
 
 NewLabel.defaultProps = {
   className: 'w-auto inline-block p-2',
