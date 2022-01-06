@@ -43,7 +43,7 @@ export class New {
         .then((res) => {
           const parsed = res.newObj;
 
-          new Person(null, parsed.author).get()
+          new Person({ id: parsed.author }).get()
             .then((person) => {
               parsed.author = person;
               parsed.date = new Date(Date.parse(parsed.date));
