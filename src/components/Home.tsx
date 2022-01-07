@@ -13,7 +13,7 @@ export default function Home() {
         setData(news);
         setIsLoading(false);
       })
-      .catch((fetchErr) => {
+      .catch((fetchErr: Error) => {
         setError(fetchErr);
         setIsLoading(false);
       });
