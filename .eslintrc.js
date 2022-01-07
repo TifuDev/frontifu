@@ -7,7 +7,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
-    'react': {
+    react: {
       version: 'detect',
     },
   },
@@ -23,25 +23,23 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
-    "jest/globals": true
+    'jest/globals': true,
   },
   extends: [
     'plugin:react/recommended',
     'airbnb-typescript',
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'prettier',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    project: ['./tsconfig.json']
+    project: ['./tsconfig.json'],
   },
-  plugins: [
-    '@typescript-eslint',
-    'jest',
-    'import'
-  ],
+  plugins: ['@typescript-eslint', 'jest', 'import'],
   rules: {
     'react/jsx-filename-extension': [0, { extensions: ['.js', '.jsx'] }],
     'react/react-in-jsx-scope': 0,
