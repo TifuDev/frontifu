@@ -64,7 +64,6 @@ Modifications not released will be documented here
 
 - Home.js to use NewLabel instead of inline jsx
 
-
 ## 0.3.15 | 2021-08-14 Hytalo M. Bassi
 
 #### Added

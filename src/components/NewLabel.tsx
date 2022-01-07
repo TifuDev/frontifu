@@ -7,17 +7,12 @@ interface Props {
 }
 
 export default function NewLabel(props: Props) {
-  const {
-    path,
-    title,
-    desc,
-    thumbnailUrl,
-    className,
-  } = props;
+  const { path, title, desc, thumbnailUrl, className } = props;
   return (
     <div className={className}>
-      {thumbnailUrl
-        && <img className="w-full rounded-md" src={thumbnailUrl} alt="Thumbnail" />}
+      {thumbnailUrl && (
+        <img className="w-full rounded-md" src={thumbnailUrl} alt="Thumbnail" />
+      )}
       {thumbnailUrl ? (
         <a href={`/new/${path}`}>
           <h1 className="font-bold text-xl">{title}</h1>

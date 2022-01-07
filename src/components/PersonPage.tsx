@@ -41,7 +41,7 @@ export default class PersonPage extends React.Component<Props, State> {
           gender: 0,
         },
         username: 'nomedousuario',
-        roles: [ 'journalist', 'commenter', 'editor' ],
+        roles: ['journalist', 'commenter', 'editor'],
       },
       err: null,
     };
@@ -50,7 +50,8 @@ export default class PersonPage extends React.Component<Props, State> {
   componentDidMount() {
     const { match } = this.props;
 
-    new Person({ username: match.params.username }).get()
+    new Person({ username: match.params.username })
+      .get()
       .then((res) => {
         this.setState({ data: res });
       })
@@ -64,7 +65,7 @@ export default class PersonPage extends React.Component<Props, State> {
     //   data.details.knowsLanguage[index] = langs[lang];
     // });
 
-    if (err) return (<h1>An error occured</h1>);
+    if (err) return <h1>An error occured</h1>;
 
     return (
       <div className="max-w-full md:max-w-md">

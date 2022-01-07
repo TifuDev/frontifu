@@ -19,7 +19,7 @@ export interface INew {
   };
   path: string;
   pullRequest: any[];
-  reactions: Array< Array<string> >;
+  reactions: Array<Array<string>>;
   title: string;
   content?: string;
 }
@@ -43,13 +43,12 @@ export class New {
         .then((res) => {
           const parsed = res;
 
-          new Person({ id: parsed.author }).get()
-            .then((person) => {
-              parsed.author = person;
-              parsed.date = new Date(Date.parse(parsed.date));
+          new Person({ id: parsed.author }).get().then((person) => {
+            parsed.author = person;
+            parsed.date = new Date(Date.parse(parsed.date));
 
-              resolve(parsed);
-            });
+            resolve(parsed);
+          });
         })
         .catch((err) => reject(err));
     });

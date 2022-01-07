@@ -21,14 +21,14 @@ export default function PersonLabel(props: Props) {
     <div className="flex items-center py-1">
       <img className={thumbnailClassName} src={profilePhoto} alt="Profile" />
       <div>
-        { username ? (
+        {username ? (
           <a href={`/person/${username}`}>
             <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
           </a>
-        ) : <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>}
-        {desc && (
-          <p className="text-sm font-light">{desc}</p>
+        ) : (
+          <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
         )}
+        {desc && <p className="text-sm font-light">{desc}</p>}
       </div>
     </div>
   );

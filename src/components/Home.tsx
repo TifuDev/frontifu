@@ -21,8 +21,9 @@ export default function Home() {
 
   return (
     <div className="container">
-      {!isLoading && !err
-        && data!.map((newObj: INew) => (
+      {!isLoading &&
+        !err &&
+        data!.map((newObj: INew) => (
           <NewLabel
             path={newObj.path}
             title={newObj.title}
@@ -32,9 +33,7 @@ export default function Home() {
             className="p-4 md:p-2 block md:inline-block w-auto"
           />
         ))}
-      {!isLoading && err && (
-        <h1>An error occured!</h1>
-      )}
+      {!isLoading && err && <h1>An error occured!</h1>}
     </div>
   );
 }

@@ -8,8 +8,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
-// eslint-disable-next-line
 if (process.env.NODE_ENV === 'development') reportWebVitals(console.log);

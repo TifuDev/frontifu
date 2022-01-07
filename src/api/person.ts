@@ -13,7 +13,7 @@ export interface IPerson {
     knowsLanguage: Lang[];
     nationality: Nationality;
     profilePhotoUrl: string;
-  }
+  };
   email: string;
   familyName: string;
   firstName: string;
@@ -22,8 +22,8 @@ export interface IPerson {
 }
 
 interface NamedParameters {
-  username?: IPerson['username'],
-  id?: IPerson['_id'],
+  username?: IPerson['username'];
+  id?: IPerson['_id'];
 }
 
 export class Person {
@@ -37,7 +37,8 @@ export class Person {
   }
 
   get(): Promise<IPerson> {
-    if (this.username !== undefined) return requestFromAPI(`person/get?username=${this.username}`);
+    if (this.username !== undefined)
+      return requestFromAPI(`person/get?username=${this.username}`);
     return requestFromAPI(`person/get?id=${this.id}`);
   }
 }
