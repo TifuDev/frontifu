@@ -56,3 +56,17 @@ yarn prepare
 
 Now when you commit, husky will lint your commit message and format
 the staged work.
+
+## Screenshots
+
+Light view: Home
+
+![home](screenshots/home.png)
+
+Light view: New
+
+![new](screenshots/new.png)
+
+Light view: User
+
+![user](screenshots/user.png)
