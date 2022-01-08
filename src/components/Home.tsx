@@ -5,7 +5,7 @@ import NewLabel from './NewLabel';
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<INew[]>();
-  const [err, setError] = useState();
+  const [err, setError] = useState<Error | null>();
 
   useEffect(() => {
     New.catalog()
