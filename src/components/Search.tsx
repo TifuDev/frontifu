@@ -44,6 +44,8 @@ export default class Search extends React.Component<Props, State> {
   }
 
   onBlur(ev: any) {
+    if (ev.relatedTarget !== null) return;
+
     const { catalog } = this.state;
     const parent = ev.target.parentElement;
 
