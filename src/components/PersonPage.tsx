@@ -1,22 +1,35 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Person from '../api/person';
+import { Person, IPerson } from '../api/person';
 import PersonLabel from './PersonLabel';
+
+interface Props {
+  match: {
+    params: {
+      username: string;
+    };
+  };
+}
+
+interface State {
+  data: IPerson;
+  err: Error | null;
+}
 
 const nationality = {
   BR: 'Brasil',
   US: 'Estados Unidos da America',
 };
 
-const langs = {
-  pt: 'portugues',
-  en: 'ingles',
-};
+// const langs = {
+//   pt: 'portugues',
+//   en: 'ingles',
+// };
 
-export default class PersonPage extends React.Component {
-  constructor(props) {
+export default class PersonPage extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
+      // @ts-ignore
       data: {
         firstName: 'Carregando...',
         familyName: '',
@@ -25,8 +38,10 @@ export default class PersonPage extends React.Component {
           bio: 'Biografia do usuario.',
           profilePhotoUrl: '/svg/user-circle',
           nationality: 'US',
+          gender: 0,
         },
         username: 'nomedousuario',
+        roles: ['journalist', 'commenter', 'editor'],
       },
       err: null,
     };
@@ -35,7 +50,8 @@ export default class PersonPage extends React.Component {
   componentDidMount() {
     const { match } = this.props;
 
-    new Person(match.params.username).get()
+    new Person({ username: match.params.username })
+      .get()
       .then((res) => {
         this.setState({ data: res });
       })
@@ -45,13 +61,11 @@ export default class PersonPage extends React.Component {
   render() {
     const { data, err } = this.state;
 
-    data.details.knowsLanguage.forEach((lang, index) => {
-      data.details.knowsLanguage[index] = langs[lang];
-    });
+    // data.details.knowsLanguage.forEach((lang, index) => {
+    //   data.details.knowsLanguage[index] = langs[lang];
+    // });
 
-    if (err) {
-      return (<h1>An error occured</h1>);
-    }
+    if (err) return <h1>An error occured</h1>;
 
     return (
       <div className="max-w-full md:max-w-md">
@@ -66,8 +80,3 @@ export default class PersonPage extends React.Component {
     );
   }
 }
-
-PersonPage.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  match: PropTypes.object.isRequired,
-};

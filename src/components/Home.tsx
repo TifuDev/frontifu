@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import New from '../api/new';
+import { New, INew } from '../api/new';
 import NewLabel from './NewLabel';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
-  const [err, setError] = useState();
+  const [data, setData] = useState<INew[]>();
+  const [err, setError] = useState<Error | null>();
 
   useEffect(() => {
     New.catalog()
@@ -13,7 +13,7 @@ export default function Home() {
         setData(news);
         setIsLoading(false);
       })
-      .catch((fetchErr) => {
+      .catch((fetchErr: Error) => {
         setError(fetchErr);
         setIsLoading(false);
       });
@@ -21,8 +21,9 @@ export default function Home() {
 
   return (
     <div className="container">
-      {!isLoading && !err
-        && data.map((newObj) => (
+      {!isLoading &&
+        !err &&
+        data!.map((newObj: INew) => (
           <NewLabel
             path={newObj.path}
             title={newObj.title}
@@ -32,9 +33,7 @@ export default function Home() {
             className="p-4 md:p-2 block md:inline-block w-auto"
           />
         ))}
-      {!isLoading && err && (
-        <h1>An error occured!</h1>
-      )}
+      {!isLoading && err && <h1>An error occured!</h1>}
     </div>
   );
 }

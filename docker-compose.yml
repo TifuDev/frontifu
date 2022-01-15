@@ -1,17 +1,17 @@
-version: "3.8"
+version: '3.8'
 services:
-    web:
-        build: .
-        volumes:
-            - web:/home/node/frontifu
-        ports:
-            - "80:80"
-        restart: always
-        env_file:
-            - .env
-        environment:
-            - API_URL=localhost
-            - API_PORT=3000
-            - PORT=80
+  web:
+    build: .
+    volumes:
+      - web:/home/node/frontifu
+    ports:
+      - '80:80'
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - API_URL=localhost
+      - API_PORT=3000
+      - PORT=80
 volumes:
-    web:
+  web:

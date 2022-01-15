@@ -1,6 +1,13 @@
-import PropTypes from 'prop-types';
+interface Props {
+  profilePhoto: string;
+  firstName: string;
+  familyName: string;
+  desc: string;
+  username: string;
+  thumbnailClassName: string;
+}
 
-export default function PersonLabel(props) {
+export default function PersonLabel(props: Props) {
   const {
     profilePhoto,
     firstName,
@@ -14,27 +21,18 @@ export default function PersonLabel(props) {
     <div className="flex items-center py-1">
       <img className={thumbnailClassName} src={profilePhoto} alt="Profile" />
       <div>
-        { username ? (
+        {username ? (
           <a href={`/person/${username}`}>
             <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
           </a>
-        ) : <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>}
-        {desc && (
-          <p className="text-sm font-light">{desc}</p>
+        ) : (
+          <h1 className="text-lg">{`${firstName} ${familyName}`}</h1>
         )}
+        {desc && <p className="text-sm font-light">{desc}</p>}
       </div>
     </div>
   );
 }
-
-PersonLabel.propTypes = {
-  profilePhoto: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  familyName: PropTypes.string.isRequired,
-  desc: PropTypes.string,
-  username: PropTypes.string,
-  thumbnailClassName: PropTypes.string,
-};
 
 PersonLabel.defaultProps = {
   thumbnailClassName: 'w-12 rounded-full mr-2',
